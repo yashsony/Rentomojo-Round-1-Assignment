@@ -1,0 +1,25 @@
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>SEARCH</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <mat-grid-list cols="2" rowHeight="200px">
+      <mat-grid-tile *ngFor="let contact of contacts" [routerLink]="['/contact', contact.id]">
+        <mat-grid-tile-header>
+          <h1>{{contact.name | uppercase}}</h1>
+        </mat-grid-tile-header>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div fxFlex *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
+  </div>
+</div>
